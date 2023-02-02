@@ -32,7 +32,7 @@ public class UserService {
         User user = userDto.toEntity();
         user.setId(id);
         user.setEmail(userDto.getEmail());
-        user.setUserName(userDto.getUserName());
+        user.setUsername(userDto.getUsername());
         user.setPassword(user.getPassword());
         user.setPasswordConfirm(user.getPassword());
 

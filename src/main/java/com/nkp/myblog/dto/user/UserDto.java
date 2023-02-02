@@ -16,7 +16,7 @@ public class UserDto {
 
     private String email;
 
-    private String userName;
+    private String username;
 
     private String password;
 
@@ -28,7 +28,7 @@ public class UserDto {
         PasswordEncoder passwordEncoder = BeanUtils.getBean(PasswordEncoder.class);
         return User.builder()
                 .email(email)
-                .userName(userName)
+                .username(username)
                 .password(passwordEncoder.encode(password))
                 .build();
 

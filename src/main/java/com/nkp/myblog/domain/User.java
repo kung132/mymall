@@ -2,6 +2,7 @@ package com.nkp.myblog.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,17 +14,17 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private String userName;
+    @Column(nullable = false, unique = true)
+    private String username;
 
     @Column(nullable = false)
     private String password;
@@ -31,6 +32,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String passwordConfirm;
 
+    @ColumnDefault("false")
+    @Column(nullable = false)
     private Boolean emailVerify;
 
     @Override
