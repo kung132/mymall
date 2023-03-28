@@ -1,9 +1,9 @@
-package com.nkp.myblog.controller;
+package com.nkp.myblog.controller.user;
 
 import com.nkp.myblog.domain.User;
 import com.nkp.myblog.dto.api.ApiResponse;
 import com.nkp.myblog.dto.user.UserDto;
-import com.nkp.myblog.service.UserService;
+import com.nkp.myblog.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

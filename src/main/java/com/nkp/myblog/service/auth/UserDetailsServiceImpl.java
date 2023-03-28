@@ -1,4 +1,4 @@
-package com.nkp.myblog.service;
+package com.nkp.myblog.service.auth;
 
 import com.nkp.myblog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

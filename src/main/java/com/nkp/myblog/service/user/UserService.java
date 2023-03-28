@@ -1,4 +1,4 @@
-package com.nkp.myblog.service;
+package com.nkp.myblog.service.user;
 
 import com.nkp.myblog.domain.User;
 import com.nkp.myblog.dto.user.UserDto;
