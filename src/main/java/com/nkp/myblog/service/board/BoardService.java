@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardService {
@@ -40,4 +42,7 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
+    public List<Page<Board>> findByTitle(Board board, Pageable pageable) {
+       return boardRepository.findByTitleContaining(board.getTitle(), pageable);
+    }
 }

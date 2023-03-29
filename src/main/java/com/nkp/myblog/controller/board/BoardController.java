@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/board")
@@ -23,6 +25,16 @@ public class BoardController {
         boardService.create(board);
         return ApiResponse.<Board>builder()
                 .data(board)
+                .status(HttpStatus.OK)
+                .build();
+    }
+
+    @GetMapping
+    public ApiResponse<List<Page<Board>>> findByTitle(BoardDto boardDto, Pageable pageable) {
+        Board board = boardDto.toEntity();
+        List<Page<Board>> result = boardService.findByTitle(board, pageable);
+        return ApiResponse.<List<Page<Board>>> builder()
+                .data(result)
                 .status(HttpStatus.OK)
                 .build();
     }
